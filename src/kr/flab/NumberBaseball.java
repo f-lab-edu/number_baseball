@@ -1,11 +1,20 @@
 package kr.flab;
 
+import java.util.Collections;
+import java.util.List;
+
 public class NumberBaseball {
     private final int NUMBER_OF_ROUND = 9;
     private final char[] CORRECT_NUMBER_SET;
 
     public NumberBaseball() {
-        CORRECT_NUMBER_SET = new char[] {};
+        List<Character> numbers = List.of('1', '2', '3', '4', '5', '6', '7', '8', '9');
+        Collections.shuffle(numbers);
+
+        CORRECT_NUMBER_SET = new char[3];
+        for (int i = 0; i < 3; i++) {
+            CORRECT_NUMBER_SET[i] = numbers.get(i);
+        }
     }
 
     //	게임을 시작하고 정해진 라운드만큼 진행하는 함수
