@@ -14,8 +14,18 @@ public class NumberBaseball {
     }
 
     //	사용자 입력을 받아 유효한 입력인지 확인하는 함수
-    public boolean isValid(char[] numberSet) {
-        return false;
+    public boolean isValid(String input) {
+        input = input.trim();
+        if (input.length() != 3) {
+            return false;
+        }
+
+        for (int i = 0; i < 3; i++) {
+            if (input.charAt(i) < '1' || input.charAt(i) > '9') {
+                return false;
+            }
+        }
+        return true;
     }
 
     //	사용자 입력을 받아 정돈된 결과(아웃, 볼, 스트라이크)를 반환해주는 함수
