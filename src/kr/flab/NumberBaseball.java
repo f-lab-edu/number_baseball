@@ -16,7 +16,7 @@ public class NumberBaseball {
     //	사용자 입력을 받아 유효한 입력인지 확인하는 함수
     private boolean isValid(String input) {
         input = input.trim();
-        return isThree(input) && isBetweenOneAndNine(input) && !isDuplicated(input);
+        return isThree(input) && isBetweenOneAndNine(input) && isNotDuplicated(input);
     }
 
     private boolean isThree(String input) {
@@ -32,15 +32,15 @@ public class NumberBaseball {
         return true;
     }
 
-    private boolean isDuplicated(String input) {
+    private boolean isNotDuplicated(String input) {
         for (int i = 0; i < 3; i++) {
             for (int j = i + 1; j < 3; j++) {
                 if (input.charAt(i) == input.charAt(j)) {
-                    return false;
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 
     //	사용자 입력을 받아 정돈된 결과(아웃, 볼, 스트라이크)를 반환해주는 함수
