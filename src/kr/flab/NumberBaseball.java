@@ -23,8 +23,33 @@ public class NumberBaseball {
     }
 
     //	사용자 입력을 받아 유효한 입력인지 확인하는 함수
-    public boolean isValid(char[] numberSet) {
-        return false;
+    private boolean isValid(String input) {
+        input = input.trim();
+        return isThree(input) && isBetweenOneAndNine(input) && isNotDuplicated(input);
+    }
+
+    private boolean isThree(String input) {
+        return input.length() == 3;
+    }
+
+    private boolean isBetweenOneAndNine(String input) {
+        for (int i = 0; i < 3; i++) {
+            if (input.charAt(i) < '1' || input.charAt(i) > '9') {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isNotDuplicated(String input) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = i + 1; j < 3; j++) {
+                if (input.charAt(i) == input.charAt(j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     //	사용자 입력을 받아 정돈된 결과(아웃, 볼, 스트라이크)를 반환해주는 함수
