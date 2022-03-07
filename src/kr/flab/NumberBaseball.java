@@ -16,13 +16,28 @@ public class NumberBaseball {
     //	사용자 입력을 받아 유효한 입력인지 확인하는 함수
     private boolean isValid(String input) {
         input = input.trim();
-        if (input.length() != 3) {
-            return false;
-        }
+        return isThree(input) && isBetweenOneAndNine(input) && !isDuplicated(input);
+    }
 
+    private boolean isThree(String input) {
+        return input.length() == 3;
+    }
+
+    private boolean isBetweenOneAndNine(String input) {
         for (int i = 0; i < 3; i++) {
             if (input.charAt(i) < '1' || input.charAt(i) > '9') {
                 return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isDuplicated(String input) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = i + 1; j < 3; j++) {
+                if (input.charAt(i) == input.charAt(j)) {
+                    return false;
+                }
             }
         }
         return true;
