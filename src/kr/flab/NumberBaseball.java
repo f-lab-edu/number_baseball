@@ -36,11 +36,11 @@ public class NumberBaseball {
         for (int i = 0; i < 3; i++) {
             for (int j = i + 1; j < 3; j++) {
                 if (input.charAt(i) == input.charAt(j)) {
-                    return true;
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
     //	사용자 입력을 받아 정돈된 결과(아웃, 볼, 스트라이크)를 반환해주는 함수
