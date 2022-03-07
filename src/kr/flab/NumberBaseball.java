@@ -30,6 +30,12 @@ public class NumberBaseball {
 
     //	사용자 입력을 받아 스트라이크가 몇 개인지 반환하는 함수
     public int countStrikes(char[] numberSet) {
-        return 0;
+        int strikes = 0;
+        for (int i = 0; i < 3; i++) {
+            if (CORRECT_NUMBER_SET[i] == numberSet[i]) {
+                strikes++;
+            }
+        }
+        return strikes;
     }
 }
