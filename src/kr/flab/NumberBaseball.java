@@ -14,7 +14,7 @@ public class NumberBaseball {
     }
 
     //	사용자 입력을 받아 유효한 입력인지 확인하는 함수
-    public boolean isValid(String input) {
+    private boolean isValid(String input) {
         input = input.trim();
         if (input.length() != 3) {
             return false;
