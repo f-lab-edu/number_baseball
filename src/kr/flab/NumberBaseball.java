@@ -1,5 +1,6 @@
 package kr.flab;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class NumberBaseball {
     private final char[] CORRECT_NUMBER_SET;
 
     public NumberBaseball() {
-        List<Character> numbers = List.of('1', '2', '3', '4', '5', '6', '7', '8', '9');
+        List<Character> numbers = Arrays.asList('1', '2', '3', '4', '5', '6', '7', '8', '9');
         Collections.shuffle(numbers);
 
         CORRECT_NUMBER_SET = new char[3];
