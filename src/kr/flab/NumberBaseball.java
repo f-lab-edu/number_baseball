@@ -59,7 +59,15 @@ public class NumberBaseball {
 
     //	사용자 입력을 받아 볼이 몇 개인지 반환하는 함수
     public int countBalls(char[] numberSet) {
-        return 0;
+        int ballAmount = 0;
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < 3; x++) {
+                if ((y != x) && (CORRECT_NUMBER_SET[y] == numberSet[x])) {
+                    ballAmount++;
+                }
+            }
+        }
+        return ballAmount;
     }
 
     //	사용자 입력을 받아 스트라이크가 몇 개인지 반환하는 함수
