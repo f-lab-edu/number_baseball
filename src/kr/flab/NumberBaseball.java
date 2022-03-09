@@ -58,7 +58,7 @@ public class NumberBaseball {
     }
 
     //	사용자 입력을 받아 볼이 몇 개인지 반환하는 함수
-    public int countBalls(char[] numberSet) {
+    private int countBalls(char[] numberSet) {
         int ballAmount = 0;
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 3; x++) {
