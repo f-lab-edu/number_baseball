@@ -53,8 +53,25 @@ public class NumberBaseball {
     }
 
     //	사용자 입력을 받아 정돈된 결과(아웃, 볼, 스트라이크)를 반환해주는 함수
-    public String judgeNumberSet(char[] numberSet) {
-        return null;
+    private String judgeNumberSet(char[] numberSet) {
+        int ball = countBalls(numberSet);
+        int strike = countStrikes(numberSet);
+        String result;
+
+        if(ball > 0 && strike > 0 ){
+            result =  ball + " 볼" + strike + " 스트라이크 ";
+        }
+        else if((ball != 0 && strike == 0) || (ball == 0 && strike != 0)) {
+            if(ball != 0){
+                result =  ball +"볼";
+            } else {
+                result = strike +"스트라이크";
+            }
+        }
+        else{
+            result =  "아웃";
+        }
+        return result;
     }
 
     //	사용자 입력을 받아 볼이 몇 개인지 반환하는 함수
