@@ -2,10 +2,12 @@ package kr.flab;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class NumberBaseball {
     private final int NUMBER_OF_ROUND = 9;
     private final char[] CORRECT_NUMBER_SET;
+    private boolean userwin = false;
 
     public NumberBaseball() {
         List<Character> numbers = List.of('1', '2', '3', '4', '5', '6', '7', '8', '9');
@@ -19,6 +21,46 @@ public class NumberBaseball {
 
     //	게임을 시작하고 정해진 라운드만큼 진행하는 함수
     public void start() {
+
+        char[] numberSet = new char[3];
+        String userNumber;// 유효성 검사 전 숫자
+        int currentRoundNumber = 1;
+
+        System.out.println("숫자야구게임을 시작합니다.");
+
+        while(currentRoundNumber <= NUMBER_OF_ROUND){
+
+            System.out.println("1~9사이 세개의 수를 입력해주세요.");
+            //입력
+            Scanner sc = new Scanner(System.in);
+            userNumber = sc.nextLine();
+
+            //유효한지 확인
+            if(isValid(userNumber)){
+                // 유효하면 숫자 배열에 넣기
+                for(int x=0;x<3;x++){
+                    numberSet[x] = userNumber.charAt(x);
+                }
+                // 결과 전달
+                System.out.println("숫자야구 "+currentRoundNumber+"회차");
+                System.out.println(judgeNumberSet(numberSet));
+                currentRoundNumber++;
+
+                // 중간에 답을 맞추면 -> 3스트라이크일 경우
+                if(userwin){
+                    System.out.println("이겼습니다!");
+                    break;
+                }
+
+            }else{
+                System.out.println("띄어쓰기없이 1~9사이 세개의 중복되지 않은 숫자로 다시 입력해주세요");
+            }
+        }
+
+        //끝까지 못마춘 경우.
+        if(!userwin){
+            System.out.println("졌습니다");
+        }
 
     }
 
@@ -95,6 +137,11 @@ public class NumberBaseball {
                 strikes++;
             }
         }
+
+        if(strikes == 3){
+            userwin = true;
+        }
+
         return strikes;
     }
 }
