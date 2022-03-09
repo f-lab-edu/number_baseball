@@ -63,9 +63,9 @@ public class NumberBaseball {
         }
         else if((ball != 0 && strike == 0) || (ball == 0 && strike != 0)) {
             if(ball != 0){
-                result =  ball +"볼";
+                result =  ball +" 볼";
             } else {
-                result = strike +"스트라이크";
+                result = strike +" 스트라이크";
             }
         }
         else{
